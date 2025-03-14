@@ -2,7 +2,6 @@ package entities;
 
 import entities.enumm.classeTrabalhador;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -15,7 +14,7 @@ public class Trabalhador {
 
     private Departamento departamento;
 
-    private List<contratoHora> contratos = new ArrayList<>();
+    private List<ContratoHora> contratos = new ArrayList<>();
 
     public Trabalhador(){
 
@@ -60,22 +59,22 @@ public class Trabalhador {
         this.departamento = departamento;
     }
 
-    public List<contratoHora> getContrato() {
+    public List<ContratoHora> getContrato() {
         return contratos;
     }
 
-    public void addContrato(contratoHora contrato){
+    public void addContrato(ContratoHora contrato){
 
         contratos.add(contrato);
     }
-    public void removeContrato(contratoHora contrato){
+    public void removeContrato(ContratoHora contrato){
         contratos.remove(contrato);
     }
 
     public double renda(int ano, int mes){
         double soma = salarioBase;
         Calendar calendar = Calendar.getInstance();
-        for (contratoHora c : contratos){
+        for (ContratoHora c : contratos){
             calendar.setTime(c.getDate());
             int c_ano = calendar.get(Calendar.YEAR);
             int c_mes = 1 + calendar.get(Calendar.MONTH);
